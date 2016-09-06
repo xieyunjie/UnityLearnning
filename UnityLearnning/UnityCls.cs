@@ -22,16 +22,19 @@ namespace UnityLearnning
 
             Console.WriteLine(UContainer.Instanst.Resolve<IEmpService>().GetHashCode());
             Console.WriteLine(UContainer.Instanst.Resolve<IEmpService>().GetHashCode());
+            UContainer.Instanst.Resolve<IEmpService>().IncreaseValue();
 
             var empService = UContainer.Instanst.Resolve<IEmpService>();
             empService.printUnityOfWork();
+            empService.IncreaseValue();
+            empService.printValue();
 
             UContainer.Instanst.Resolve<IEmpService>().printUnityOfWork();
+            UContainer.Instanst.Resolve<IEmpService>().IncreaseValue();
+            UContainer.Instanst.Resolve<IEmpService>().printValue();
 
             Console.WriteLine(UContainer.Instanst.Resolve<IEmpDao>().GetHashCode());
             Console.WriteLine(UContainer.Instanst.Resolve<IEmpDao>().GetHashCode());
-
-
 
             Console.WriteLine(UContainer.Instanst.Resolve<IUnityOfWork>().GetHashCode());
             Console.WriteLine(UContainer.Instanst.Resolve<IUnityOfWork>().GetHashCode());
@@ -42,12 +45,14 @@ namespace UnityLearnning
         {
             UContainer.Instanst.RegisterType<IUnityOfWork, UnityOfWork>(new PerThreadLifetimeManager());
             UContainer.Instanst.RegisterType<IEmpDao, EmpDao>(new PerThreadLifetimeManager());
-            UContainer.Instanst.RegisterType<IEmpService, EmpService>(new ContainerControlledLifetimeManager());
+            UContainer.Instanst.RegisterType<IEmpService, EmpService>(new PerThreadLifetimeManager());
 
             Console.WriteLine("EmpS hascode:" + UContainer.Instanst.Resolve<IEmpService>().GetHashCode());
 
             var empService = UContainer.Instanst.Resolve<IEmpService>();
             empService.printUnityOfWork();
+            UContainer.Instanst.Resolve<IEmpService>().IncreaseValue();
+            UContainer.Instanst.Resolve<IEmpService>().printValue();
 
             UContainer.Instanst.Resolve<IEmpService>().printUnityOfWork();
 
@@ -68,6 +73,8 @@ namespace UnityLearnning
 
             var empService = UContainer.Instanst.Resolve<IEmpService>();
             empService.printUnityOfWork();
+            empService.IncreaseValue();
+            empService.printValue();
 
             UContainer.Instanst.Resolve<IEmpService>().printUnityOfWork();
 

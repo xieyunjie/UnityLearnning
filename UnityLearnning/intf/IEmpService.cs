@@ -9,5 +9,9 @@ namespace UnityLearnning.intf
     public  interface IEmpService
     {
         void printUnityOfWork();
+
+        void printValue();
+
+        void IncreaseValue();
     }
 }

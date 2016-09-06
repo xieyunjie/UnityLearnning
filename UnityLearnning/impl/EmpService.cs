@@ -21,5 +21,17 @@ namespace UnityLearnning.impl
         {
             Console.WriteLine(string.Format("EmpService:{0} UnityOfWork {1}",this.GetHashCode(), this._unityOfWork.GetHashCode()));
         }
+
+        private int unityValue = 0;
+
+        public void printValue()
+        {
+            Console.WriteLine(string.Format("EmpService:{0} UnityValue: {1}", this.GetHashCode(), this.unityValue));
+        }
+
+        public void IncreaseValue()
+        {
+            this.unityValue++;
+        }
     }
 }
