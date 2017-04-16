@@ -17,11 +17,28 @@ namespace UnityLearnning_Test
             UnityLearnning.UnityCls.TransientLifetimeManager();
         }
 
-        [Test]
+        [Test] 
         public void TestPreThreadLifetime()
         {
             UnityLearnning.UnityCls.PerThreadLifetimeManager();
         }
 
+        [Test]
+        public void PreThreadMixSingleton()
+        {
+            UnityLearnning.UnityCls.PreThreadMixSingleton();
+        }
+
+        [Test]
+        public void SingletonMixTransient()
+        {
+            UnityLearnning.UnityCls.SingletonMixTransient();
+        }
+
+        [Test]
+        public void SingletonMixTransient2()
+        {
+            UnityLearnning.UnityCls.SingletonMixTransient2();
+        } 
     }
 }

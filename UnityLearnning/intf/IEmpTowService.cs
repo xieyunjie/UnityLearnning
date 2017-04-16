@@ -6,13 +6,8 @@ using System.Threading.Tasks;
 
 namespace UnityLearnning.intf
 {
-    public  interface IEmpService
+   public interface IEmpTowService
     {
         void printUnityOfWork();
-
-        void printValue();
-
-        void IncreaseValue();
-        void printNewUnitOfWork();
     }
 }

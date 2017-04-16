@@ -65,10 +65,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="impl\EmpDao.cs" />
+    <Compile Include="impl\EmpThreeService.cs" />
     <Compile Include="impl\EmpService.cs" />
+    <Compile Include="impl\EmpTowService.cs" />
     <Compile Include="impl\UnityOfWork.cs" />
     <Compile Include="intf\IEmpDao.cs" />
     <Compile Include="intf\IEmpService.cs" />
+    <Compile Include="intf\IEmpThreeService.cs" />
+    <Compile Include="intf\IEmpTowService.cs" />
     <Compile Include="intf\IUnityOfWork.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UContainer.cs" />
