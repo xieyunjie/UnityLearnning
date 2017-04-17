@@ -24,6 +24,8 @@ namespace UnityWeb.Controllers
 
         public string GetHash()
         {
+            empSvc.printUnityOfWork();
+            empSvc.printNewUnitOfWork();
             return string.Format("controller hash:{0}, empsvc hash:{1}", this.GetHashCode().ToString(),this.empSvc.GetHashCode()) ;
         }
 

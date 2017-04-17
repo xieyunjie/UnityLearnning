@@ -4,6 +4,10 @@ using Microsoft.Practices.Unity.Configuration;
 using UnityLearnning;
 using UnityLearnning.intf;
 using UnityLearnning.impl;
+using System.Configuration;
+using System.IO;
+using System.Reflection;
+using Microsoft.Practices.Unity.InterceptionExtension;
 
 namespace UnityWeb.App_Start
 {
@@ -43,8 +47,21 @@ namespace UnityWeb.App_Start
             // TODO: Register your types here
             // container.RegisterType<IProductRepository, ProductRepository>();
 
-            container.RegisterType<IUnityOfWork, UnityOfWork>();
-            container.RegisterType<IEmpService, EmpService>();
+            //container.RegisterType<IUnityOfWork, UnityOfWork>(new PerRequestLifetimeManager());
+            //container.RegisterType<IEmpService, EmpService>(new PerRequestLifetimeManager());
+
+
+            //ExeConfigurationFileMap fileMap = new ExeConfigurationFileMap()
+            //{
+            //    ExeConfigFilename = System.AppDomain.CurrentDomain.BaseDirectory + "unity.config"
+            //};
+            //Configuration configuration = ConfigurationManager.OpenMappedExeConfiguration(fileMap, ConfigurationUserLevel.None);
+            //UnityConfigurationSection unitySection = (UnityConfigurationSection)configuration.GetSection("unity");
+            //container.LoadConfiguration(unitySection, "mvcContainer");
+
+            container.AddNewExtension<Interception>();
+            container.RegisterType<IUnityOfWork, UnityOfWork>(new PerRequestLifetimeManager());
+            container.RegisterType<IEmpService, EmpService>(new PerRequestLifetimeManager(),new Interceptor<InterfaceInterceptor>(),new InterceptionBehavior<LoggingInterceptionBehavior>());
 
         }
     }

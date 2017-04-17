@@ -206,6 +206,7 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="unity.config" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
