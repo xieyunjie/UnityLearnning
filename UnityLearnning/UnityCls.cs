@@ -94,7 +94,7 @@ namespace UnityLearnning
             Console.WriteLine("UnityOfWork hascode:" + UContainer.Instanst.Resolve<IUnityOfWork>().GetHashCode());
 
             empService.printUnityOfWork();
-             
+
             var thread = new Thread(new ThreadStart(Sub_Mix));
             thread.Start();
 
@@ -105,26 +105,26 @@ namespace UnityLearnning
             UContainer.Instanst.RegisterType<IEmpTowService, EmpTowService>(new PerResolveLifetimeManager());
             UContainer.Instanst.RegisterType<IUnityOfWork, UnityOfWork>(new PerResolveLifetimeManager());
 
-            var empService = UContainer.Instanst.Resolve<IEmpTowService>(); 
+            var empService = UContainer.Instanst.Resolve<IEmpTowService>();
 
-            Console.WriteLine("EmpS hascode:" + empService.GetHashCode()); 
+            Console.WriteLine("EmpS hascode:" + empService.GetHashCode());
             Console.WriteLine("UnityOfWork hascode:" + UContainer.Instanst.Resolve<IUnityOfWork>().GetHashCode());
 
             empService.printUnityOfWork();
-             
+
             var thread = new Thread(new ThreadStart(Sub_Mix));
-            thread.Start(); 
+            thread.Start();
         }
 
         public static void SingletonMixTransient2()
         {
-            UContainer.Instanst.RegisterType<IEmpTowService, EmpTowService>(new PerThreadLifetimeManager()); 
+            UContainer.Instanst.RegisterType<IEmpTowService, EmpTowService>(new PerThreadLifetimeManager());
             UContainer.Instanst.RegisterType<IEmpThreeService, EmpThreeService>(new PerThreadLifetimeManager());
             UContainer.Instanst.RegisterType<IUnityOfWork, UnityOfWork>(new TransientLifetimeManager());
 
             var empService = UContainer.Instanst.Resolve<IEmpTowService>();
 
-            Console.WriteLine("EmpS hascode:" + empService.GetHashCode()); 
+            Console.WriteLine("EmpS hascode:" + empService.GetHashCode());
             var empThreeService = UContainer.Instanst.Resolve<IEmpThreeService>();
             Console.WriteLine("EmpT hascode:" + empThreeService.GetHashCode());
 
@@ -145,6 +145,16 @@ namespace UnityLearnning
             Console.WriteLine("Sub UnityOfWork hascode:" + UContainer.Instanst.Resolve<IUnityOfWork>().GetHashCode());
 
             empService.printUnityOfWork();
+        }
+
+
+        public static void dbaccess()
+        {
+            UContainer.Instanst.RegisterType<DBAccess>(new InjectionConstructor("111111222222"));
+
+            DBAccess dba = UContainer.Instanst.Resolve<DBAccess>();
+            dba.PrintConn();
+
         }
     }
 }

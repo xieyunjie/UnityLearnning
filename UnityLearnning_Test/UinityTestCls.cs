@@ -17,7 +17,7 @@ namespace UnityLearnning_Test
             UnityLearnning.UnityCls.TransientLifetimeManager();
         }
 
-        [Test] 
+        [Test]
         public void TestPreThreadLifetime()
         {
             UnityLearnning.UnityCls.PerThreadLifetimeManager();
@@ -39,6 +39,13 @@ namespace UnityLearnning_Test
         public void SingletonMixTransient2()
         {
             UnityLearnning.UnityCls.SingletonMixTransient2();
-        } 
+        }
+
+
+        [Test]
+        public void PrintConn()
+        {
+            UnityLearnning.UnityCls.dbaccess();
+        }
     }
 }
