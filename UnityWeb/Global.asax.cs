@@ -23,8 +23,8 @@ namespace UnityWeb
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles); 
 
-            UContainer.Instanst.RegisterType<IUnityOfWork, UnityOfWork>(new PerThreadLifetimeManager()); 
-            UContainer.Instanst.RegisterType<IEmpService, EmpService>(new PerThreadLifetimeManager());
+            //UContainer.Instanst.RegisterType<IUnityOfWork, UnityOfWork>(new PerThreadLifetimeManager()); 
+            //UContainer.Instanst.RegisterType<IEmpService, EmpService>(new PerThreadLifetimeManager());
 
             //Bootstrapper.Initialize();
         }
