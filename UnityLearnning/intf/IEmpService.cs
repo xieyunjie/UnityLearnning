@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace UnityLearnning.intf
 {
-    public  interface IEmpService
+    public interface IEmpService
     {
         void printUnityOfWork();
 
@@ -14,5 +14,8 @@ namespace UnityLearnning.intf
 
         void IncreaseValue();
         void printNewUnitOfWork();
+
+        void printParams(string param1, int param2, DateTime? n, string j = null);
+        void printParams(ParamCls objParam);
     }
 }

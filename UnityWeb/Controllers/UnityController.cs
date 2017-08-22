@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using UnityLearnning.intf;
 using Microsoft.Practices.Unity;
 using UnityLearnning.impl;
+using UnityLearnning;
 
 namespace UnityWeb.Controllers
 {
@@ -57,6 +58,20 @@ namespace UnityWeb.Controllers
             empSvc.printUnityOfWork();
 
             return string.Format("controller hash:{0}, empsvc hash:{1}", this.GetHashCode().ToString(), e.GetHashCode());
+        }
+
+        public string PrintParams()
+        {
+            this.empSvc.printParams("111", 22, DateTime.Now);
+            ParamCls par = new ParamCls()
+            {
+                CreateTime = DateTime.Now.AddDays(10),
+                Name = "alexxie"
+            };
+
+            this.empSvc.printParams(par);
+            return "ok";
+
         }
 
     }

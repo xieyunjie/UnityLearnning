@@ -44,5 +44,15 @@ namespace UnityLearnning.impl
         {
             this.unityValue++;
         }
+
+        public void printParams(string param1, int param2, DateTime? n, string j = null)
+        {
+            System.Diagnostics.Trace.WriteLine(string.Format("EmpService:{0} UnityOfWork {1}", this.GetHashCode(), this._unityOfWork.GetHashCode()));
+        }
+
+        public void printParams(ParamCls objParam)
+        {
+            System.Diagnostics.Trace.WriteLine(string.Format("EmpService:{0} UnityOfWork {1}", this.GetHashCode(), this._unityOfWork.GetHashCode()));
+        }
     }
 }
